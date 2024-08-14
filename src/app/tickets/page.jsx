@@ -13,9 +13,9 @@ const Page = () => {
                 const res = await fetch(
                     "https://json-api.uz/api/project/otabek-ticketc/tickets"
                 );
-                if (!res.ok) {
-                    throw new Error("Failed to fetch data");
-                }
+                // if (!res.ok) {
+                //     throw new Error("Failed to fetch data");
+                // }
                 const result = await res.json();
                 console.log(result); // Ma'lumotlarni tekshirib ko'rish uchun
                 setData(result.data || []); // Agar result.data mavjud bo'lsa, uni o'rnating, aks holda bo'sh array
@@ -45,8 +45,8 @@ const Page = () => {
                 </Link>
             </div>
             <div className="m-auto flex justify-center flex-wrap gap-5">
-                {data.data > 0 ? (
-                    data.data.map((ticket) => (
+                {data.length > 0 ? (
+                    data.map((ticket) => (
                         <div className="card" key={ticket.id}>
                             <h2 className="text-lg font-bold">
                                 {ticket.title}
