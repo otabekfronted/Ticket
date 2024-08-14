@@ -12,13 +12,16 @@ const TicketForm = () => {
         const data = Object.fromEntries(formData.entries());
 
         try {
-            const response = await fetch("http://localhost:4000/tickets", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(data),
-            });
+            const response = await fetch(
+                "https://json-api.uz/api/project/otabek-ticketc/tickets",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                }
+            );
 
             if (response.ok) {
                 const result = await response.json();

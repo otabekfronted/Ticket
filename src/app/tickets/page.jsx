@@ -10,12 +10,15 @@ const Page = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch("http://localhost:4000/tickets");
+                const res = await fetch(
+                    "https://json-api.uz/api/project/otabek-ticketc/tickets"
+                );
                 if (!res.ok) {
                     throw new Error("Failed to fetch data");
                 }
                 const result = await res.json();
-                setData(result);
+                console.log(result); // Ma'lumotlarni tekshirib ko'rish uchun
+                setData(result.data || []); // Agar result.data mavjud bo'lsa, uni o'rnating, aks holda bo'sh array
             } catch (error) {
                 console.error("Error fetching data:", error);
                 setData([]);
