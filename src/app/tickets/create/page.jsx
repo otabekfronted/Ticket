@@ -1,3 +1,4 @@
+// pages/ticket-form.js
 "use client";
 import { useRouter } from "next/navigation";
 import Navbar from "@/app/components/Navbar";
@@ -15,7 +16,7 @@ const TicketForm = () => {
             const response = await fetch(
                 "https://json-api.uz/api/project/otabek-ticketc/tickets",
                 {
-                    method: "GET",
+                    method: "POST", // Ma'lumot yuborish uchun POST so‘rovini ishlatamiz
                     headers: {
                         "Content-Type": "application/json",
                     },
@@ -26,12 +27,18 @@ const TicketForm = () => {
             if (response.ok) {
                 const result = await response.json();
                 console.log("Ticket added:", result);
-                router.push("/tickets"); // Redirect to the tickets page to see the updated list
+                router.push("/tickets"); // Yangilangan ro‘yxatni ko‘rish uchun /tickets sahifasiga o‘tkazish
             } else {
                 console.error("Failed to add ticket:", response.statusText);
             }
         } catch (error) {
             console.error("Error:", error);
+            return {
+                props: {
+                    tickets: [],
+                },
+                revalidate: 10,
+            };
         }
     };
 
