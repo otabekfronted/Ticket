@@ -45,8 +45,8 @@ const Page = () => {
                 </Link>
             </div>
             <div className="m-auto flex justify-center flex-wrap gap-5">
-                {data.length > 0 ? (
-                    data.map((ticket) => (
+                {data.data > 0 ? (
+                    data.data.map((ticket) => (
                         <div className="card" key={ticket.id}>
                             <h2 className="text-lg font-bold">
                                 {ticket.title}
