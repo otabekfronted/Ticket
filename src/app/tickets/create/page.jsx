@@ -16,7 +16,7 @@ const TicketForm = () => {
             const response = await fetch(
                 "https://json-api.uz/api/project/otabek-ticketc/tickets/",
                 {
-                    method: "POST", // Ma'lumot yuborish uchun POST so‘rovini ishlatamiz
+                    method: "GET", // Ma'lumot yuborish uchun POST so‘rovini ishlatamiz
                     headers: {
                         "Content-Type": "application/json",
                     },
