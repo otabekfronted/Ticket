@@ -11,7 +11,7 @@ const Page = () => {
         const fetchData = async () => {
             try {
                 const res = await fetch(
-                    "https://json-api.uz/api/project/otabek-ticketc/tickets/"
+                    "https://json-api.uz/api/project/otabek-ticketc/tickets"
                 );
                 // if (!res.ok) {
                 //     throw new Error("Failed to fetch data");
